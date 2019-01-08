@@ -19,9 +19,36 @@ ran react-native run-android to check all installed correctly and connected to d
 
 added react-navigation
 
+added necessary docs for reference
+    airbnb style guide for my ide
+    development steps taken during development
+    application guidelines provided by ezyvet
+
 init git repo and first commit
 
 
 /**************************************** SECOND COMMIT **********************************************/
 
 abstracted App into its own folder, and added a test navigation stack with a single screen
+
+/**************************************** THIRD COMMIT **********************************************/
+
+Created app skeleton:
+
+Added Component for Product Tile
+    renders a button which contains a product name and price
+
+Added Cart Screen
+    cart screen currently displays placeholder text
+
+Changed Shop Screen to map the Products supplied and display them as product tiles
+
+Added Data provided by ezyVet
+    changed to single quotations to stick to airbnb standards, otherwise left untouched
+
+Created a Product Model for future reference, which is a class that represents a supplied product
+
+Added navigation to the application
+    imported cart screen into stack navigator
+
+Added a basic readme
