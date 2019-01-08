@@ -3,7 +3,7 @@ import { View, StyleSheet, Button } from 'react-native';
 
 // Create a generic stylesheet for testing
 const styles = StyleSheet.create({
-  container: {
+  generic: {
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -23,7 +23,7 @@ class ProductTile extends React.Component {
   render = () => {
     const { product } = this.props;
     return (
-      <View style={styles.container}>
+      <View style={styles.generic}>
         {this.createTile(product)}
       </View>
     );

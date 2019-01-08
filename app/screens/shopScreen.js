@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 
 import Products from '../data/productData';
 import ProductTile from '../components/productTile';
@@ -8,10 +8,6 @@ class ShopScreen extends React.Component {
   // Navigation options for this particular screen
   static navigationOptions = {
     title: 'Shop Screen',
-    headerRight: (
-      <Button title="Cart"/>
-    ),
-    headerMode: 'none',
   };
 
   // Uses the imported products and maps through them
