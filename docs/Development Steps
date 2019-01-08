@@ -20,3 +20,8 @@ ran react-native run-android to check all installed correctly and connected to d
 added react-navigation
 
 init git repo and first commit
+
+
+/**************************************** SECOND COMMIT **********************************************/
+
+abstracted App into its own folder, and added a test navigation stack with a single screen
