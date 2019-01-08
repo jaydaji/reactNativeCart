@@ -1,0 +1,22 @@
+/**************************************** FIRST COMMIT **********************************************/
+
+react-native init ezyVetCart
+
+used npm to install dependencies
+
+installed	eslint
+			eslint-config-airbnb
+			eslint-plugin-import - to lint es6 import/export syntax correctly
+			eslint-plugin-react - for react specific linting rules
+			eslint-plugin-jsx-a11y - checks rules on jsx elements
+			babel-eslint - allows for the usage of flow to type check js
+
+./node_modules/.bin/eslint --init - to setup eslint config
+
+edited eslint rc to extend airbnb standards
+
+ran react-native run-android to check all installed correctly and connected to development server
+
+added react-navigation
+
+init git repo and first commit
