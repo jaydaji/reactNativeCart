@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+// Allows for connection to the redux store
+import { connect } from 'react-redux';
+
+import ProductTile from '../components/productTile';
 
 class CartScreen extends React.Component {
   // Navigation options for this particular screen
@@ -7,13 +12,23 @@ class CartScreen extends React.Component {
     title: 'Cart Screen',
   };
 
-  render = () => (
-    <View>
-      <Text>
-        Cart Screen
-      </Text>
-    </View>
-  )
+  render = () => {
+    const { Cart } = this.props;
+    return (
+      Cart.map((item, index) => (
+        <View key={index}>
+          <ProductTile
+            product={item}
+          />
+        </View>
+      ))
+    );
+  }
 }
 
-export default CartScreen;
+const mapStateToProps = state => ({
+  Cart: state,
+});
+
+// the connect syntax is what connects the component to the store
+export default connect(mapStateToProps)(CartScreen);

@@ -52,3 +52,39 @@ Added navigation to the application
     imported cart screen into stack navigator
 
 Added a basic readme
+
+
+/**************************************** FOURTH COMMIT **********************************************/
+
+Added Cart button component which displays in the navigation header in App.js
+
+Changed container styling to generic styling for use during development
+
+Removed Cart button from shop screen as it is now in nav header
+
+
+/**************************************** FIFTH COMMIT **********************************************/
+
+changed line endings
+
+/**************************************** SIXTH COMMIT **********************************************/
+
+Adding redux and react-redux
+
+connected state to the cart button to display the number of items in the cart
+
+changed the cart button to navigate to the cart page when pressed
+
+connected state to the cart screen to display the products in the cart
+
+displayed product tiles on the cart screen for any items that are in the cart
+
+connected state to the shop screen to be able to dispatch events
+
+added a dispatcher which adds a product to the cart when pressing a product tile
+
+added a reducer for the cart, with actions to add and remove items from the cart
+
+create a redux store in a new store file
+
+wrapped the app with react redux provider and supplied the store to it

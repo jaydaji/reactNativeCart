@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
+
+// Allows for connection to the redux store
+import { connect } from 'react-redux';
+
+import { withNavigation } from 'react-navigation';
 
 
 const styles = StyleSheet.create({
@@ -9,10 +14,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const CartButton = () => (
-  <View style={styles.generic}>
-    <Text style={styles.generic}>Cart</Text>
-  </View>
-);
+const CartButton = (props) => {
+  const { Cart, navigation } = props;
+  return (
+    <View style={styles.generic}>
+      <Button title={`${Cart.length}`} style={styles.generic} onPress={() => navigation.navigate('Cart')} />
+    </View>
+  );
+};
 
-export default CartButton;
+const mapStateToProps = state => ({
+  Cart: state,
+});
+
+// the connect syntax is what connects the component to the store
+export default connect(mapStateToProps)(withNavigation(CartButton));
