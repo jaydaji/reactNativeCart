@@ -1,12 +1,21 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 // Allows for connection to the redux store
 import { connect } from 'react-redux';
 
-import Products from '../data/productData';
 import ProductTile from '../components/productTile';
 
+// Create a generic stylesheet for testing
+const styles = StyleSheet.create({
+  container: {
+    padding: 8,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 class ShopScreen extends React.Component {
   // Navigation options for this particular screen
@@ -14,23 +23,43 @@ class ShopScreen extends React.Component {
     title: 'Shop Screen',
   };
 
-  // Uses the imported products and maps through them
-  // to create a single tile for each product
-  render = () => Products.map((item, index) => {
-    const { addItemToCart } = this.props;
-    return (
-      <View key={index}>
+  // creates the tiles on this screen to allow the user to add them to the cart
+  createTiles = (cart, addItemToCart) => (
+    Object.keys(cart).map(key => (
+      <View style={{ margin: 10 }} key={cart[key].name}>
         <ProductTile
-          product={item}
+          product={cart[key]}
+          showQuantity={false}
           onPress={addItemToCart}
+          action="Add to Cart"
         />
       </View>
+    )));
+
+  // Uses the imported products and maps through them
+  // to create a single tile for each product
+  render = () => {
+    const { Cart, addItemToCart } = this.props;
+    return (
+      <View style={styles.container}>
+        {this.createTiles(Cart, addItemToCart)}
+      </View>
     );
-  });
+  }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addItemToCart: product => dispatch({ type: 'ADD_TO_CART', payload: product }),
+// maps the state of the cart store to the props
+const mapStateToProps = state => ({
+  Cart: state,
 });
 
-export default connect(null, mapDispatchToProps)(ShopScreen);
+// maps the actions to the props
+const mapDispatchToProps = dispatch => ({
+  addItemToCart: product => dispatch({
+    type: 'ADD_ITEM_TO_CART',
+    payload: {
+      [product.name]: Object.assign({}, product, { quantity: product.quantity + 1 }),
+    },
+  }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ShopScreen);
