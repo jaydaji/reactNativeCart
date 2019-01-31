@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 
 // Allows for connection to the redux store
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 // allows the react navigation to work correctly with the
 // component when mapping actions to the props
-import { withNavigation } from 'react-navigation';
+import {withNavigation} from 'react-navigation';
 
 // basic styles for the cart button
 const styles = StyleSheet.create({
@@ -21,15 +21,15 @@ const styles = StyleSheet.create({
 const getCartQuantity = (cart) => {
   let total = 0;
   const cartKeys = Object.keys(cart);
-  for (let i = 0; i < cartKeys.length; ++i) {
+  for (let i = 0; i < cartKeys.length; i += 1) {
     total += cart[cartKeys[i]].quantity;
   }
-  return 'View Cart: ' + total.toString();
+  return `View Cart: ${total.toString()}`;
 };
 
-// cartbutton component shown in the header
+// cart button component shown in the header
 const CartButton = (props) => {
-  const { Cart, navigation } = props;
+  const {Cart, navigation} = props;
 
   // return the component
   return (

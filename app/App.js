@@ -1,8 +1,8 @@
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 
 // Wraps the app in the redux provider to provide the store
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 
 // Supplies our defined store to the provider
 import Store from './state/store/store';
@@ -10,9 +10,8 @@ import Store from './state/store/store';
 // Screens
 import ShopScreen from './screens/shopScreen';
 import CartScreen from './screens/cartScreen';
-
-import CartButton from './components/cartButton';
-
+// Components
+import CartButton from './components/cartButton/cartButton';
 
 // Create the navigation
 const AppNavigator = createStackNavigator(
@@ -23,7 +22,7 @@ const AppNavigator = createStackNavigator(
     navigationOptions: {
       headerTitle: 'ezyVet Shop',
       headerRight: (
-        <CartButton />
+        <CartButton/>
       ),
     },
   },
@@ -33,7 +32,7 @@ export default class Shop extends React.Component {
   render() {
     return (
       <Provider store={Store}>
-        <AppNavigator />
+        <AppNavigator/>
       </Provider>
     );
   }

@@ -11,4 +11,3 @@ Products.map((item, index) => {
 });
 
 export default products;
-

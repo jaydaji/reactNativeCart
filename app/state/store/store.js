@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import {createStore} from 'redux';
 
 import Cart from '../reducers/cart';
 import Products from '../../data/productData';
@@ -17,7 +17,6 @@ const initialState = cart;
 
 // create the store
 const Store = createStore(Cart,
-  initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+  initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default Store;

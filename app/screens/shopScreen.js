@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 // Allows for connection to the redux store
 import { connect } from 'react-redux';
 
-import ProductTile from '../components/productTile';
+import ProductTile from '../components/productTile/productTile';
 
 // Create a generic stylesheet for testing
 const styles = StyleSheet.create({
@@ -62,4 +62,5 @@ const mapDispatchToProps = dispatch => ({
     },
   }),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(ShopScreen);
